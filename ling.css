@@ -123,3 +123,18 @@
 @media (forced-colors: active) {
   :is(.case-page, .case-dialog) :is(h1, h2, h3, h4) { color: CanvasText; }
 }
+
+/* The case title retains the portfolio's expressive display typography. */
+.case-page h1.hero__title,
+.case-dialog h1.hero__title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  text-transform: none;
+  color: #111;
+  max-width: 800px;
+  text-wrap: balance;
+  overflow-wrap: normal;
+}
