@@ -279,3 +279,7 @@
   .case-page .hero__link,
   .case-dialog .hero__link { color: CanvasText; }
 }
+
+/* Tighter connection between section labels and their paragraphs. */
+.case-page .case-container :is(h2, h3, h4),
+.case-dialog .case-container :is(h2, h3, h4) { margin-bottom: 12px; }
