@@ -179,3 +179,47 @@
   .case-dialog .case-content,
   .case-dialog .ui-design { padding-inline: 20px; }
 }
+
+
+/* Centered case caption with the close control outside the reading surface. */
+.case-dialog {
+  position: fixed;
+  width: min(680px, calc(100% - 112px));
+  overflow: visible;
+  border-radius: 40px;
+}
+.case-dialog__bar {
+  justify-content: center;
+  padding: 28px 32px;
+  border-bottom: 0;
+  border-radius: 40px 40px 0 0;
+}
+#case-dialog-title {
+  font: 400 16px/1.5 Inter, Arial, sans-serif;
+  color: #777;
+  text-align: center;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.case-dialog__close {
+  position: absolute;
+  top: 0;
+  right: -52px;
+  background: transparent;
+  color: #fff;
+  font-size: 32px;
+}
+.case-dialog__close:hover { background: #ffffff26; }
+.case-dialog__close:active { background: #ffffff40; }
+.case-dialog .case-dialog__close:focus-visible { outline-color: #fff; }
+.case-dialog__body { border-radius: 0 0 40px 40px; }
+@media (max-width: 600px) {
+  .case-dialog { width: calc(100% - 68px); margin-left: 12px; border-radius: 28px; }
+  .case-dialog__bar { padding: 24px 20px; border-radius: 28px 28px 0 0; }
+  #case-dialog-title { font-size: 14px; }
+  .case-dialog__close { right: -48px; }
+  .case-dialog__body { border-radius: 0 0 28px 28px; }
+}
+@media (forced-colors: active) {
+  #case-dialog-title, .case-dialog__close { color: CanvasText; }
+}
