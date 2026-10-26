@@ -103,3 +103,23 @@
   font: 400 clamp(30px, 4vw, 44px)/1.15 "Instrument Serif", Georgia, serif;
   margin: 48px 0 24px;
 }
+
+
+/* Case headings follow the existing UX/UI CASE eyebrow treatment. */
+:is(.case-page, .case-dialog) :is(h1.hero__title, h2, h3, h4) {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.65;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #666;
+  overflow-wrap: anywhere;
+}
+.case-dialog .hero__title,
+.case-page .hero__title { max-width: 680px; }
+.case-dialog .hero__subtitle,
+.case-page .hero__subtitle { font-weight: 600; letter-spacing: .2em; color: #666; }
+@media (forced-colors: active) {
+  :is(.case-page, .case-dialog) :is(h1, h2, h3, h4) { color: CanvasText; }
+}
