@@ -223,3 +223,26 @@
 @media (forced-colors: active) {
   #case-dialog-title, .case-dialog__close { color: CanvasText; }
 }
+
+/* Smaller section labels and darker case narrative. */
+.case-page .case-container :is(h2, h3, h4),
+.case-dialog .case-container :is(h2, h3, h4) { font-size: 14px; }
+.case-page .case-container p,
+.case-page .case-container li,
+.case-dialog .case-container p,
+.case-dialog .case-container li,
+.case-page .hero__link,
+.case-dialog .hero__link,
+.case-metrics dt,
+.case-metrics dd span { color: #121212; }
+@media (forced-colors: active) {
+  .case-page .case-container p,
+  .case-page .case-container li,
+  .case-dialog .case-container p,
+  .case-dialog .case-container li,
+  .case-page .hero__link,
+  .case-dialog .hero__link,
+  .case-metrics dt,
+  .case-metrics dd span { color: CanvasText; }
+}
+.case-container strong { color: #121212; }
