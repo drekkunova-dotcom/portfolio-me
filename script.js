@@ -183,7 +183,7 @@ if (caseDialog && caseTrigger && typeof caseDialog.showModal === "function") {
     body.setAttribute("aria-busy", "true");
     body.innerHTML = '<p class="case-dialog__status" role="status">Загружаем кейс…</p>';
     try {
-      const response = await fetch(caseTrigger.href, { signal: controller.signal });
+      const response = await fetch(caseTrigger.href, { signal: controller.signal, cache: "no-cache" });
       if (!response.ok) throw new Error("Case unavailable");
       const page = new DOMParser().parseFromString(await response.text(), "text/html");
       const hero = page.querySelector(".hero");
