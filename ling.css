@@ -257,3 +257,25 @@
   .case-dialog__body { scrollbar-width: auto; }
   .case-dialog__body::-webkit-scrollbar { display: block; }
 }
+
+/* Narrative rhythm matches the supplied 16px / 24px reference. */
+.case-page .case-container p,
+.case-page .case-container li,
+.case-dialog .case-container p,
+.case-dialog .case-container li,
+.case-page .hero__link,
+.case-dialog .hero__link {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #121212;
+}
+@media (forced-colors: active) {
+  .case-page .case-container p,
+  .case-page .case-container li,
+  .case-dialog .case-container p,
+  .case-dialog .case-container li,
+  .case-page .hero__link,
+  .case-dialog .hero__link { color: CanvasText; }
+}
