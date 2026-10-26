@@ -147,3 +147,23 @@
 .case-page .case-container,
 .case-dialog .case-container { width: 100%; max-width: 600px; margin-inline: auto; }
 .case-page .case-content { padding-inline: 20px; }
+
+/* Case illustrations share the narrative's 600px reading column. */
+.case-page .case-cover,
+.case-dialog .case-cover {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-inline: auto;
+}
+.case-page .case-container img,
+.case-dialog .case-container img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+.case-dialog .ui-design { padding-inline: 24px; }
+@media (max-width: 600px) {
+  .case-dialog .ui-design { padding-inline: 20px; }
+}
