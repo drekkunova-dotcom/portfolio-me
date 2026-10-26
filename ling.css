@@ -78,3 +78,19 @@
   margin: 24px 0 48px;
   display: block;
 }
+
+/* Research outcomes, separate from unmeasured product impact. */
+.case-results { margin-top: 48px; }
+.case-results__eyebrow { font: 500 11px/1.5 Inter, sans-serif !important; letter-spacing: .14em; color: #555; }
+.case-results h2 { font: 400 clamp(30px, 4vw, 44px)/1.15 "Instrument Serif", Georgia, serif; margin-bottom: 20px; }
+.case-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 32px 0 24px; }
+.case-metrics__item { border-top: 1px solid #bdbdbd; padding-top: 18px; font-family: Inter, sans-serif; }
+.case-metrics dt { font-size: 13px; line-height: 1.5; min-height: 40px; color: #555; }
+.case-metrics dd { margin: 12px 0 0; }
+.case-metrics dd strong { display: block; font-size: clamp(30px, 4vw, 42px); line-height: 1.2; font-weight: 500; color: #111; margin-bottom: 12px; }
+.case-metrics dd span { display: block; font-size: 14px; line-height: 1.6; color: #37352f; }
+.case-container .case-results__note { font-size: 13px; line-height: 1.65; color: #555; padding-top: 18px; border-top: 1px solid #ececec; }
+@media (max-width: 600px) {
+  .case-metrics { grid-template-columns: 1fr; gap: 24px; }
+  .case-metrics dt { min-height: 0; }
+}
