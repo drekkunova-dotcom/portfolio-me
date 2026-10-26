@@ -163,3 +163,65 @@ if (project) {
     });
 
 }
+
+// Кейс загружается из существующей страницы: текст редактируется в ling.html.
+const caseDialog = document.getElementById("case-dialog");
+const caseTrigger = document.querySelector(".case-trigger");
+if (caseDialog && caseTrigger && typeof caseDialog.showModal === "function") {
+  const body = document.getElementById("case-dialog-body");
+  const close = caseDialog.querySelector(".case-dialog__close");
+  let request;
+  let loaded = false;
+  let backdropStart = false;
+
+  async function loadCase() {
+    if (loaded) return;
+    request?.abort();
+    const controller = new AbortController();
+    request = controller;
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    body.setAttribute("aria-busy", "true");
+    body.innerHTML = '<p class="case-dialog__status" role="status">Загружаем кейс…</p>';
+    try {
+      const response = await fetch(caseTrigger.href, { signal: controller.signal });
+      if (!response.ok) throw new Error("Case unavailable");
+      const page = new DOMParser().parseFromString(await response.text(), "text/html");
+      const hero = page.querySelector(".hero");
+      const content = page.querySelector(".case-content");
+      if (!hero || !content) throw new Error("Case content missing");
+      if (request !== controller || !caseDialog.open) return;
+      const banner = page.querySelector(".ui-design");
+      body.replaceChildren(...[hero, banner, content].filter(Boolean));
+      loaded = true;
+    } catch (error) {
+      if (request !== controller || !caseDialog.open) return;
+      body.innerHTML = '<div class="case-dialog__status" role="alert"><p>Не удалось загрузить кейс. Проверьте подключение и попробуйте ещё раз.</p><button type="button" class="case-dialog__retry">Повторить</button><a href="ling.html">Открыть отдельной страницей</a></div>';
+      body.querySelector("button").addEventListener("click", loadCase);
+    } finally {
+      clearTimeout(timeout);
+      if (request === controller) body.setAttribute("aria-busy", "false");
+    }
+  }
+
+  caseTrigger.addEventListener("click", (event) => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    event.preventDefault();
+    caseDialog.showModal();
+    document.documentElement.classList.add("case-open");
+    body.scrollTop = 0;
+    loadCase();
+  });
+  close.addEventListener("click", () => caseDialog.close());
+  caseDialog.addEventListener("pointerdown", (event) => {
+    backdropStart = event.target === caseDialog;
+  });
+  caseDialog.addEventListener("click", (event) => {
+    if (backdropStart && event.target === caseDialog) caseDialog.close();
+    backdropStart = false;
+  });
+  caseDialog.addEventListener("close", () => {
+    request?.abort();
+    document.documentElement.classList.remove("case-open");
+    caseTrigger.focus({ preventScroll: true });
+  });
+}

@@ -629,3 +629,80 @@ html {
 
   margin-bottom: 16px;
 }
+
+/* Case overlay: the project stays visible behind a reading surface. */
+:root {
+  --scroll-thumb: #bdbdbd;
+  --scroll-track: #f5f5f5;
+  --scroll-hover: #888;
+  --scroll-active: #555;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+  scrollbar-gutter: stable;
+}
+* { scrollbar-color: var(--scroll-thumb) var(--scroll-track); scrollbar-width: auto; }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--scroll-track); }
+::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border: 3px solid var(--scroll-track); border-radius: 12px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scroll-hover); }
+::-webkit-scrollbar-thumb:active { background: var(--scroll-active); }
+html.case-open { overflow: hidden; }
+.case-trigger { color: inherit; text-decoration: none; cursor: pointer; }
+.case-trigger:hover { opacity: .6; }
+.case-trigger:active { opacity: .8; }
+.case-trigger:focus-visible, .case-dialog button:focus-visible, .case-dialog a:focus-visible {
+  outline: 2px solid #111; outline-offset: 5px; border-radius: 4px;
+}
+.case-dialog {
+  border: 0; border-radius: 24px; padding: 0;
+  margin: auto; width: min(1040px, calc(100% - 64px));
+  max-height: calc(100dvh - 64px); background: #fff; color: #111;
+  box-shadow: 0 24px 100px #0003; overflow: hidden;
+}
+.case-dialog[open] { display: flex; flex-direction: column; }
+.case-dialog::backdrop { background: #1119; backdrop-filter: blur(5px); }
+.case-dialog__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 14px 24px; flex-shrink: 0; border-bottom: 1px solid #ececec;
+}
+.case-dialog__bar h2 { font: 500 14px/1.5 Inter, sans-serif; }
+.case-dialog__close {
+  width: 44px; height: 44px; border: 0; border-radius: 50%; background: #f5f5f5;
+  color: #111; font: 28px/1 sans-serif; cursor: pointer;
+}
+.case-dialog__close:hover { background: #e5e5e5; }
+.case-dialog__close:active { background: #d5d5d5; }
+.case-dialog__body { overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; min-height: 240px; }
+.case-dialog .hero { min-height: auto; padding: 64px 32px 40px; }
+.case-dialog .hero__content { margin: 0; }
+.case-dialog .hero__subtitle { color: #666; letter-spacing: .2em; margin-bottom: 24px; }
+.case-dialog .hero__title { font-size: clamp(34px, 5vw, 64px); line-height: 1.08; }
+.case-dialog .hero__link { margin: 0; max-width: 620px; }
+.case-dialog .ui-design { transform: none; padding: 0 32px; }
+.case-dialog .case-cover { width: min(100%, 640px); height: auto; aspect-ratio: 1; object-fit: contain; border-radius: 20px; }
+.case-dialog .case-content { padding: 0 24px 64px; }
+.case-dialog .case-container { width: 100%; max-width: 760px; }
+.case-dialog .case-container h3 { font-size: clamp(24px, 4vw, 32px); margin-top: 48px; }
+.case-dialog .case-container h4 { font-size: clamp(20px, 3vw, 24px); }
+.case-dialog .case-container p, .case-dialog .case-container li { font-size: 16px; line-height: 1.75; overflow-wrap: anywhere; }
+.case-dialog__status { min-height: 240px; padding: 48px 24px; font: 16px/1.6 Inter, sans-serif; }
+.case-dialog__status p { margin-bottom: 24px; }
+.case-dialog__retry { padding: 10px 18px; margin-right: 20px; border: 1px solid #111; background: #111; color: #fff; border-radius: 8px; font: inherit; cursor: pointer; }
+.case-dialog__retry:hover { background: #37352f; }
+.case-dialog__retry:active { background: #555; }
+.case-dialog__status a { color: #111; }
+.case-dialog__status a:hover { text-decoration-thickness: 2px; }
+@media (max-width: 600px) {
+  .case-dialog { width: calc(100% - 16px); max-height: calc(100dvh - 16px); border-radius: 16px; }
+  .case-dialog__bar { padding: 8px 16px; }
+  .case-dialog .hero { padding: 40px 20px 24px; }
+  .case-dialog .ui-design { padding: 0 16px; }
+  .case-dialog .case-content { padding: 0 20px 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .slides, .slide, .ui-design__title { transition: none; }
+}
+@media (forced-colors: active) {
+  * { scrollbar-color: auto; }
+  .case-dialog, .case-dialog__close { border: 1px solid CanvasText; }
+}

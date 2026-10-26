@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +7,7 @@
     <title>Daria Rekunova — UX/UI Designer</title>
     <link rel="icon" type="image/png" href="imahes/ico.svg" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="ling.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -105,7 +106,7 @@
         </div>
       </div>
 
-      <h2 class="ui-design__title">lingualeo</h2>
+      <h2 class="ui-design__title"><a class="case-trigger" href="ling.html" aria-haspopup="dialog" aria-controls="case-dialog">lingualeo</a></h2>
 
       <p class="hero__link">
         концепт редизайна грамматических тренировок для повышения вовлеченности
@@ -344,6 +345,13 @@
       </div>
     </section>
 
+    <dialog class="case-dialog" id="case-dialog" aria-labelledby="case-dialog-title">
+      <div class="case-dialog__bar">
+        <h2 id="case-dialog-title">LinguaLeo · кейс</h2>
+        <button class="case-dialog__close" type="button" aria-label="Закрыть кейс" autofocus>×</button>
+      </div>
+      <div class="case-dialog__body" id="case-dialog-body" aria-busy="false"></div>
+    </dialog>
     <script src="script.js"></script>
   </body>
 </html>
