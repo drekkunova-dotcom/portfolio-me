@@ -167,3 +167,15 @@
 @media (max-width: 600px) {
   .case-dialog .ui-design { padding-inline: 20px; }
 }
+
+/* Compact case window with a shared 600px content measure. */
+.case-dialog { width: min(680px, calc(100% - 32px)); }
+.case-dialog .hero { padding-inline: 32px; }
+.case-dialog .case-content,
+.case-dialog .ui-design { padding-inline: 32px; }
+@media (max-width: 600px) {
+  .case-dialog { width: calc(100% - 16px); }
+  .case-dialog .hero,
+  .case-dialog .case-content,
+  .case-dialog .ui-design { padding-inline: 20px; }
+}
