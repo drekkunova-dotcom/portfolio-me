@@ -138,3 +138,12 @@
   text-wrap: balance;
   overflow-wrap: normal;
 }
+
+/* Reading measure: wider display title, narrower case narrative. */
+.case-page h1.hero__title,
+.case-dialog h1.hero__title { width: 100%; max-width: 800px; }
+.case-page .hero__link,
+.case-dialog .hero__link { width: 100%; max-width: 600px; }
+.case-page .case-container,
+.case-dialog .case-container { width: 100%; max-width: 600px; margin-inline: auto; }
+.case-page .case-content { padding-inline: 20px; }
