@@ -94,3 +94,8 @@
   .case-metrics { grid-template-columns: 1fr; gap: 24px; }
   .case-metrics dt { min-height: 0; }
 }
+
+.case-section-title {
+  font: 400 clamp(30px, 4vw, 44px)/1.15 "Instrument Serif", Georgia, serif;
+  margin: 48px 0 24px;
+}
