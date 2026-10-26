@@ -246,3 +246,14 @@
   .case-metrics dd span { color: CanvasText; }
 }
 .case-container strong { color: #121212; }
+
+/* Hide the case scroll rail while retaining native scrolling. */
+.case-dialog__body {
+  scrollbar-width: none;
+  scrollbar-gutter: auto;
+}
+.case-dialog__body::-webkit-scrollbar { display: none; }
+@media (forced-colors: active) {
+  .case-dialog__body { scrollbar-width: auto; }
+  .case-dialog__body::-webkit-scrollbar { display: block; }
+}
