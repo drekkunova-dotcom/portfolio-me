@@ -225,3 +225,38 @@ if (caseDialog && caseTrigger && typeof caseDialog.showModal === "function") {
     caseTrigger.focus({ preventScroll: true });
   });
 }
+
+// Shared before/after comparisons work in the page and dynamically loaded dialog.
+function setComparison(surface, value) {
+  const range = surface.querySelector('.case-comparison__range');
+  const position = Math.round(Math.max(0, Math.min(100, value)));
+  range.value = position;
+  range.setAttribute('aria-valuetext', `До: ${position}%, после: ${100 - position}%`);
+  surface.style.setProperty('--comparison', `${position}%`);
+}
+document.addEventListener('input', (event) => {
+  if (event.target.matches('.case-comparison__range')) {
+    setComparison(event.target.closest('.case-comparison__surface'), Number(event.target.value));
+  }
+});
+let comparisonDrag = null;
+document.addEventListener('pointerdown', (event) => {
+  const surface = event.target.closest('.case-comparison__surface');
+  if (!surface || !event.isPrimary || event.button !== 0) return;
+  const range = surface.querySelector('.case-comparison__range');
+  range.focus({ preventScroll: true });
+  surface.setPointerCapture(event.pointerId);
+  comparisonDrag = { surface, pointerId: event.pointerId };
+  const rect = surface.getBoundingClientRect();
+  setComparison(surface, (event.clientX - rect.left) / rect.width * 100);
+});
+document.addEventListener('pointermove', (event) => {
+  if (!comparisonDrag || comparisonDrag.pointerId !== event.pointerId) return;
+  const rect = comparisonDrag.surface.getBoundingClientRect();
+  setComparison(comparisonDrag.surface, (event.clientX - rect.left) / rect.width * 100);
+});
+for (const name of ['pointerup', 'pointercancel', 'lostpointercapture']) {
+  document.addEventListener(name, (event) => {
+    if (comparisonDrag?.pointerId === event.pointerId) comparisonDrag = null;
+  });
+}

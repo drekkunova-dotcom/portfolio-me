@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Lingualeo</title>
-    <link rel="stylesheet" href="styles.css?v=20261026-heading-gap-12" />
-    <link rel="stylesheet" href="ling.css?v=20261026-heading-gap-12" />
+    <link rel="stylesheet" href="styles.css?v=20261027-compare-1" />
+    <link rel="stylesheet" href="ling.css?v=20261027-compare-1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -154,13 +154,33 @@
           </li>
         </ul>
 
-        <h3>Существующее решение</h3>
+        <h3>Старт тренировки</h3>
+        <p>Сравните исходный экран и концепт с маскотом и отдельной кнопкой начала тренировки.</p>
+        <figure class="case-comparison">
+          <div class="case-comparison__surface" style="--comparison: 50%">
+            <img class="case-comparison__image" src="imahes/lingualeo-01.png" alt="Старт тренировки: после редизайна" draggable="false" />
+            <img class="case-comparison__image case-comparison__before" src="imahes/lingleo-before01.png" alt="Старт тренировки: до редизайна" draggable="false" />
+            <span class="case-comparison__label case-comparison__label--before" aria-hidden="true">До</span>
+            <span class="case-comparison__label case-comparison__label--after" aria-hidden="true">После</span>
+            <span class="case-comparison__divider" aria-hidden="true"><span>‹ ›</span></span>
+            <input class="case-comparison__range" type="range" min="0" max="100" value="50" aria-label="Старт тренировки: сравнение до и после" aria-valuetext="До: 50%, после: 50%" />
+          </div>
+          <figcaption>Потяните разделитель, чтобы сравнить до и после. С клавиатуры — стрелками.</figcaption>
+        </figure>
 
-        <p>Иллюстрация исходного интерфейса пока не добавлена.</p>
-
-        <h3>Предлагаемое решение</h3>
-
-        <img src="imahes/lingualeo-02.png" alt="Концепт интерфейса LinguaLeo" loading="lazy" />
+        <h3>Экран задания</h3>
+        <p>Сравните исходное задание и концепт с карточками ответов и явной кнопкой проверки.</p>
+        <figure class="case-comparison">
+          <div class="case-comparison__surface" style="--comparison: 50%">
+            <img class="case-comparison__image" src="imahes/lingualeo-02.png" alt="Экран задания: после редизайна" draggable="false" />
+            <img class="case-comparison__image case-comparison__before" src="imahes/lingleo-before02.png" alt="Экран задания: до редизайна" draggable="false" />
+            <span class="case-comparison__label case-comparison__label--before" aria-hidden="true">До</span>
+            <span class="case-comparison__label case-comparison__label--after" aria-hidden="true">После</span>
+            <span class="case-comparison__divider" aria-hidden="true"><span>‹ ›</span></span>
+            <input class="case-comparison__range" type="range" min="0" max="100" value="50" aria-label="Экран задания: сравнение до и после" aria-valuetext="До: 50%, после: 50%" />
+          </div>
+          <figcaption>Потяните разделитель, чтобы сравнить до и после. С клавиатуры — стрелками.</figcaption>
+        </figure>
 
         <section class="case-results" aria-labelledby="case-results-title">
           <p class="case-results__eyebrow">РЕЗУЛЬТАТЫ ПРОВЕРКИ ПРОТОТИПА</p>
@@ -235,5 +255,6 @@
         <p>Следующий шаг — уточнить эти сценарии и повторно проверить их на пользователях. Влияние маскота на вовлечённость также требует дополнительной проверки на большей выборке.</p>
       </div>
     </section>
+    <script src="script.js?v=20261027-compare-1"></script>
   </body>
 </html>
