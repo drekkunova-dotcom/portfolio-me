@@ -302,3 +302,24 @@
   .case-comparison__divider span, .case-comparison__label { background: Canvas; color: CanvasText; border: 1px solid CanvasText; }
   .case-comparison__surface:focus-within { outline-color: Highlight; }
 }
+
+/* Caption, explanation and a quiet two-column metric row beneath each screen. */
+.case-comparison:has(+ .case-impact) { margin-bottom: 24px; }
+.case-impact { margin: 0 0 48px; }
+.case-page .case-impact h4,
+.case-dialog .case-impact h4 { margin-top: 0; font-size: 14px; font-weight: 400; line-height: 1.5; letter-spacing: normal; text-transform: none; color: #777; }
+.case-page .case-impact__note,
+.case-dialog .case-impact__note { font-size: 12px; line-height: 1.5; color: #666; margin-bottom: 16px; }
+.case-impact__metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding-top: 20px; border-top: 1px solid #ececec; font-family: Inter, Arial, sans-serif; color: #121212; }
+.case-impact__metrics > div { display: flex; flex-direction: column; gap: 8px; }
+.case-impact__metrics dd { order: -1; margin: 0; font: 400 32px/1.1 "Instrument Serif", Georgia, serif; }
+.case-impact__metrics dt { font-size: 16px; line-height: 1.5; }
+@media (max-width: 400px) {
+  .case-impact__metrics { gap: 16px; }
+  .case-impact__metrics dt { font-size: 14px; }
+}
+@media (forced-colors: active) {
+  .case-page .case-impact h4, .case-dialog .case-impact h4,
+  .case-page .case-impact__note, .case-dialog .case-impact__note,
+  .case-impact__metrics { color: CanvasText; }
+}
