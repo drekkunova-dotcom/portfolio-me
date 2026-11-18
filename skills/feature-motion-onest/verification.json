@@ -1,0 +1,36 @@
+{
+  "checks": "passed",
+  "font": {
+    "family": "Onest",
+    "weights": [
+      400,
+      500,
+      600,
+      700,
+      900
+    ]
+  },
+  "loadedFaces": [
+    {
+      "family": "Onest",
+      "status": "loaded",
+      "weight": "100 900"
+    }
+  ],
+  "colors": {
+    "background": "rgb(240, 242, 246)",
+    "accent": "rgb(0, 158, 54)",
+    "button": "rgb(38, 38, 38)",
+    "selection": "rgb(229, 245, 235)"
+  },
+  "families": {
+    "title": "Onest, sans-serif",
+    "body": "Onest, sans-serif"
+  },
+  "weight": "900",
+  "stage": [
+    1920,
+    1080
+  ],
+  "scope": "Local font loading and CSS theme only; no movie rendered."
+}

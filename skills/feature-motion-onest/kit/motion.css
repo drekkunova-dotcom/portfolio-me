@@ -1,0 +1,90 @@
+/* Motion kit v2 — base styles. Stage size: <body data-format="16x9|1x1|9x16|4x5">. */
+/* Personal palette and Onest typography defaults. */
+:root{
+ --bg:#F0F2F6; --bg-white:#FFFFFF; --bg-dark:#151515; --bg-dark2:#262626;
+ --accent:#009E36; --accent-soft:#E5F5EB; --green:#009E36;
+ --button-primary:#262626; --ink:#262626; --ink-2:#76767B; --line:#EBEDF0; --border:#414141;
+ --brand-grad:linear-gradient(180deg,#E5F5EB 0%,#009E36 100%);
+ --card-shadow:0 24px 60px rgba(21,21,21,.10),0 4px 14px rgba(21,21,21,.05);
+ --lift-shadow:0 40px 90px rgba(21,21,21,.18),0 8px 20px rgba(21,21,21,.07);
+ --font-ui:'Onest',sans-serif; --font-display:'Onest',sans-serif; --font-accent:'Onest',sans-serif;
+ --weight-body:400; --weight-label:500; --weight-button:600; --weight-heading:700; --weight-accent:900;
+}
+@font-face{
+ font-family:'Onest'; src:url('fonts/Onest-Variable.ttf') format('truetype');
+ font-style:normal; font-weight:100 900; font-display:block;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg)}
+body{font-family:var(--font-ui);font-synthesis:none;-webkit-font-smoothing:antialiased;color:var(--ink)}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
+body[data-format="1x1"] #stage{width:1080px;height:1080px}
+body[data-format="9x16"] #stage{width:1080px;height:1920px}
+body[data-format="4x5"] #stage{width:1080px;height:1350px}
+.scene{position:absolute;inset:0;visibility:hidden}
+.layer{position:absolute;inset:0}
+.cam{position:absolute;inset:0;transform-origin:0 0}
+.center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.abs{position:absolute}
+#fly{position:absolute;inset:0;pointer-events:none;z-index:50}
+.flying{position:absolute!important;left:0!important;top:0!important;margin:0!important}
+.bgstack{position:absolute;inset:0;z-index:0;pointer-events:none}
+.bgfill{position:absolute;inset:0}
+.bgstack ~ *{z-index:1}
+
+/* Isolated component look */
+.card{background:#fff;border-radius:28px;box-shadow:var(--card-shadow)}
+.pill{border-radius:999px}
+.accent{font-family:var(--font-accent);font-weight:var(--weight-accent);letter-spacing:-.01em;line-height:.95}
+.headline{font-family:var(--font-display);font-weight:var(--weight-heading);letter-spacing:-.02em;line-height:1.05}
+.caption{font-family:var(--font-ui);font-weight:var(--weight-label);color:var(--ink-2)}
+.btn{background:var(--button-primary);color:#fff;font-weight:var(--weight-button);border-radius:999px;display:flex;align-items:center;justify-content:center}
+
+/* iPhone (screen 393×852 pt). The frame is a separate layer (.bezel) so it can materialise around content. */
+.phone{position:absolute;width:425px;height:884px;transform-origin:50% 50%}
+.phone .screen{position:absolute;left:16px;top:16px;width:393px;height:852px;border-radius:56px;overflow:hidden;background:#fff}
+.phone .bezel{position:absolute;inset:0;border-radius:72px;pointer-events:none;
+  box-shadow:inset 0 0 0 16px #16161A, inset 0 0 0 18px #3a3a40, 0 40px 90px rgba(0,0,0,.16)}
+.phone .island{position:absolute;left:50%;top:11px;width:124px;height:36px;margin-left:-62px;background:#000;border-radius:20px;z-index:20}
+.phone .status{position:absolute;left:0;right:0;top:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:4px 34px 0 50px;font:600 17px/1 var(--font-ui);z-index:19}
+.phone.dark .status{color:#fff}
+.phone .homebar{position:absolute;bottom:8px;left:50%;width:140px;height:5px;margin-left:-70px;border-radius:3px;background:#111;z-index:19}
+.phone.dark .homebar{background:#fff}
+.phone .content{position:absolute;inset:0}
+
+/* Toggle */
+.toggle{position:relative;border-radius:999px;background:#E3E3E8}
+.toggle .knob{position:absolute;left:8%;top:8%;height:84%;aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.14);transform-origin:50% 50%}
+
+/* Micro bits */
+.seed{position:absolute;border-radius:50%;pointer-events:none}
+.hand{position:absolute;pointer-events:none;z-index:40;transform-origin:30% 10%;filter:drop-shadow(0 6px 10px rgba(0,0,0,.18))}
+.hand svg{width:100%;height:100%;display:block}
+.ripple{position:absolute;width:80px;height:80px;border-radius:50%;background:rgba(17,17,17,.14);pointer-events:none;z-index:39}
+.ch{display:inline-block;white-space:pre}
+.cursor{display:inline-block;width:.09em;min-width:3px;height:1.05em;vertical-align:-.15em;margin-left:.06em;border-radius:2px;background:linear-gradient(180deg,#E5F5EB,var(--accent))}
+.roll{display:inline-flex;align-items:baseline;font-variant-numeric:tabular-nums}
+.rcol{display:inline-block;height:1em;line-height:1;overflow:hidden;vertical-align:baseline}
+.rstrip{display:flex;flex-direction:column}
+.rstrip span,.rch{display:block;height:1em;line-height:1}
+.rch{display:inline-block}
+.ringsvg{display:block;overflow:visible}
+
+/* Particles & light */
+.particle{position:absolute;left:0;top:0;will-change:transform,opacity}
+.coin{border-radius:50%;background:radial-gradient(circle at 35% 30%,#E5F5EB 0,#E5F5EB 30%,#009E36 62%,#009E36 100%);
+  box-shadow:inset 0 -6px 0 rgba(0,80,28,.18), inset 0 4px 0 rgba(255,255,255,.45)}
+.coin::after{content:'';position:absolute;inset:24%;border-radius:50%;border:5px solid rgba(255,255,255,.75)}
+.confetti{border-radius:3px}
+.flash,.rays,.glow{position:absolute;pointer-events:none}
+.flash{inset:0}
+.rays,.glow{border-radius:50%}
+.smear{position:absolute;left:0;width:100%;pointer-events:none;z-index:30;filter:blur(28px);
+  background:linear-gradient(90deg,transparent 0,var(--c) 35%,var(--c) 55%,transparent 100%);opacity:.9;transform-origin:50% 50%}
+.bg-brand{background:var(--brand-grad)}
+
+/* Native artwork already contains its frame/status bar. Do not add another bezel or island. */
+.phone-artwork{position:absolute;display:block;object-fit:contain;transform-origin:50% 50%}
+.btn-primary{background:var(--button-primary);color:#fff}
+.selection{background:var(--accent-soft);color:var(--ink)}
+.success-icon,.accent-text{color:var(--accent)}

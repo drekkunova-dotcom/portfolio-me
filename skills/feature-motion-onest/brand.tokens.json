@@ -1,0 +1,40 @@
+{
+  "delivery": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "usage": "Defaults; task-specific settings take precedence"
+  },
+  "colors": {
+    "background": "#F0F2F6",
+    "surface": "#FFFFFF",
+    "surface_subtle": "#F3F4F6",
+    "accent": "#009E36",
+    "selection": "#E5F5EB",
+    "primary_button": "#262626",
+    "ink": "#262626",
+    "secondary_ink": "#76767B",
+    "border": "#414141",
+    "line": "#EBEDF0",
+    "editor_dark": "#151515"
+  },
+  "typography": {
+    "family": "Onest",
+    "confirmed_by": "user",
+    "font_file": "kit/fonts/Onest-Variable.ttf",
+    "weight_axis": [
+      100,
+      900
+    ],
+    "roles": {
+      "body": 400,
+      "label": 500,
+      "button": 600,
+      "heading": 700,
+      "accent": 900
+    },
+    "native_png_typography": "Preserve raster text and geometry. Role weights are defaults only for newly authored text; source artwork wins."
+  },
+  "reference": "Dodo feature-motion movement principles; personal visual theme",
+  "name": "Personal Onest motion theme"
+}
